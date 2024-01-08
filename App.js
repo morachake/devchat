@@ -6,6 +6,7 @@ import Navigator from './navigation/Index';
 export default function App() {
   return (
    <NavigationContainer>
+     <StatusBar style='dark'/>
      <Navigator/>
    </NavigationContainer>
   );
