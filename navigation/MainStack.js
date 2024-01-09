@@ -1,11 +1,14 @@
-import { Text, View } from "react-native"
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import BottTabs from './tabs/BottomTabs';
 
- const MainStack =() =>{
-    return (
-        <View>
-            <Text>Main stack</Text>
-        </View>
+
+const Drawer = createDrawerNavigator()
+const Mainstack =( ) =>{
+    return(
+        <Drawer.Navigator screenOptions={{headerShown: false}}>
+            <Drawer.Screen name='HomeScreen'  component={BottTabs}/>
+        </Drawer.Navigator>
     )
 }
 
-export default MainStack
+export default Mainstack

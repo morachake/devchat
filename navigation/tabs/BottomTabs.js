@@ -7,7 +7,7 @@ import Profile from '../../src/views/home/Profile';
 
 const Tab = createBottomTabNavigator();
 
-export default function Tabs () {
+export default function BottTabs () {
     return (
         <Tab.Navigator>
             <Tab.Screen name="Home" component={HomeScreen} />
