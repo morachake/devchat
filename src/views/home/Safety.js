@@ -1,10 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View,Text, StatusBar } from 'react-native';
 
 export default function Safety() {
   return (
-    <View>
+    <>
+    <StatusBar style="auto"/>
+      <View>
         <Text>Safety</Text>
     </View>
+    </>
+  
   );
 }
