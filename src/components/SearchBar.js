@@ -1,22 +1,24 @@
 import React from 'react';
-import { TextInput, View } from 'react-native';
+import { TextInput, View , StyleSheet
+} from 'react-native';
 
 export default function SearchBar() {
   return (
-    <View>
+    <View style={styles.container}>
         <TextInput
-
+            style={styles.input}
+            placeholder='Search Message '
         />
     </View>
   );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container :{
-
-    },
-    input:{
         width: 350,
         height: 60,
+    },
+    input:{
+
     }
 })

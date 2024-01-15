@@ -1,12 +1,13 @@
 import { View,Text,StyleSheet, StatusBar } from "react-native";
 import {COLORS} from "../../constants/index"
+import SearchBar from "../../components/SearchBar";
 export default function Chat () {
     return(
         <>
         <StatusBar style="auto"/>
-        <View style={styles.container}>
-           
-        </View>
+            <View style={styles.container}>
+                <SearchBar />
+            </View>
         </>
     )
 }

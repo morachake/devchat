@@ -9,12 +9,12 @@ const Tab = createBottomTabNavigator();
 
 export default function BottTabs () {
     const color = '#DD3562'
-    const size = 40
+    const size =  28
     return (
         <Tab.Navigator
             tabBarOptions ={{
                 initialRouteName:'Home',
-                activeTintColor: "#1B1142", 
+                activeTintColor: "#DD3562", 
                 inactiveTintColor: "#A8A8A8",
                 style:{
                     backgroundColor: "#DD3562",
