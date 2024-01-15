@@ -1,33 +1,27 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 import HomeScreen from '../../src/views/home/HomeScreen';
 import Chat from '../../src/views/home/Chat';
 import Reels from '../../src/views/home/Reels';
 import Profile from '../../src/views/home/Profile';
 import { MaterialIcons ,AntDesign,MaterialCommunityIcons,EvilIcons} from '@expo/vector-icons';
+import { COLORS } from '../../src/constants';
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 export default function BottTabs () {
-    const color = '#DD3562'
-    const size =  28
     return (
         <Tab.Navigator
-            tabBarOptions ={{
-                initialRouteName:'Home',
-                activeTintColor: "#DD3562", 
-                inactiveTintColor: "#A8A8A8",
-                style:{
-                    backgroundColor: "#DD3562",
-                    borderTopColor: 'transparent'
-                }
-            }}
+            labeled={false}
+            activeColor="#f0edf6"
+            inactiveColor="#3e2465"
+            barStyle={{backgroundColor: COLORS.background}}
         >
             <Tab.Screen 
                 name="Home" 
                 component={HomeScreen} 
                 options={{
                     tabBarIcon :({ color,size}) =>(
-                       <AntDesign name="home" size={size} color={color} />
+                       <AntDesign name="home" size={24} color="#FFFFFF" />
                         )
                     }}  
             />
@@ -36,7 +30,7 @@ export default function BottTabs () {
                 component={Reels} 
                 options={{
                     tabBarIcon:({color,size}) =>(
-                        <MaterialCommunityIcons name="dots-grid" size={size} color={color} />
+                        <MaterialCommunityIcons name="dots-grid" size={27} color="#FFFFFF" />
                     )
                 }}
             />
@@ -45,7 +39,7 @@ export default function BottTabs () {
                 component={Chat} 
                 options={{
                     tabBarIcon:({color,size}) =>(
-                        <MaterialIcons name="chat" size={size} color={color} />
+                        <MaterialIcons name="chat" size={26} color="#FFFFFF" />
 
                     )
                 }}
@@ -55,7 +49,7 @@ export default function BottTabs () {
                 component={Profile}
                 options={{
                     tabBarIcon:({color,size}) =>(
-                        <EvilIcons name="user" size={size} color={color} />
+                        <EvilIcons name="user" size={26} color="#FFFFFF" />
                     )
                 }}
             />
