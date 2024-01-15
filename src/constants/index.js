@@ -1,7 +1,11 @@
+export const COLORS = {
+    // For simplicity, using a single color for the background
+    background: "#1B1142",
 
-export default  COLORS ={
-    // background: linear-gradient(180deg, #140034 0%, #01010D 100%);
-    icons : "#612DA6",
-    background:"#1B1142",
-    buttons : "#DD3562, #8354FF",
-}
+    // Colors for icons and buttons
+    icons: "#612DA6",
+    buttons: "#DD3562",  // If you need a gradient for buttons, you'll use LinearGradient
+
+    // Gradient colors (if needed in the future)
+    gradientBackground: ['#140034', '#01010D'], // Example gradient colors
+};
