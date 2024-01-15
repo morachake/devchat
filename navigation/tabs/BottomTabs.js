@@ -11,6 +11,9 @@ const Tab = createMaterialBottomTabNavigator();
 export default function BottTabs () {
     return (
         <Tab.Navigator
+            screenOptions={{
+                headerShown: true,
+            }}
             labeled={false}
             activeColor="#f0edf6"
             inactiveColor="#3e2465"

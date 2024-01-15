@@ -1,9 +1,10 @@
 import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Reels () {
     return (
-        <View>
+        <SafeAreaView>
             <Text>Reels</Text>
-        </View>
+        </SafeAreaView>
     )
 }
