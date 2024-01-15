@@ -5,7 +5,10 @@ import {
 } from '@react-navigation/drawer';
 const CustomDrawer = (props) =>{
     return(
-       <DrawerContentScrollView {...props}>
+       <DrawerContentScrollView 
+       {...props}
+       contentContainerStyle={{borderColor:'#0000'}}
+       >
             <View>
                 <Text>A top side</Text>
             </View>
