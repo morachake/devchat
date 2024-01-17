@@ -5,13 +5,14 @@ import SearchBar from "../../components/SearchBar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NavBar from "../../components/Navbar";
 import ChatMatches from "../../components/ChatMatches";
+import ChatCard from "../../components/ChatCard";
 
 export default function Chat() {
   return (
     <SafeAreaView style={styles.container}>
         <StatusBar style="white" />
         <NavBar />
-        <View>
+        <View style={{alignItems:"center"}}>
           <SearchBar />
           <Text style={styles.text}>New Matches</Text>
         </View>
@@ -26,9 +27,7 @@ export default function Chat() {
         </View>
           <ScrollView style={styles.scrollViewContainer}>
             <Text style={styles.text}>All Messages</Text>
-            <View>
-
-            </View>
+              <ChatCard/>
           </ScrollView>
     </SafeAreaView>
   );
@@ -45,6 +44,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   scrollViewContainer: {
-    height: 200, 
+    // height: 200, 
   },
 });
