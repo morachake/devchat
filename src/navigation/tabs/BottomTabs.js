@@ -1,10 +1,10 @@
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
-import HomeScreen from '../../src/views/home/HomeScreen';
-import Chat from '../../src/views/home/Chat';
-import Reels from '../../src/views/home/Reels';
-import Profile from '../../src/views/home/Profile';
+import HomeScreen from '../../views/home/HomeScreen';
+import Chat from '../../views/home/Chat';
+import Reels from '../../views/home/Reels';
+import Profile from '../../views/home/Profile';
 import { MaterialIcons ,AntDesign,MaterialCommunityIcons,EvilIcons} from '@expo/vector-icons';
-import { COLORS } from '../../src/constants';
+import { COLORS } from '../../constants';
 
 const Tab = createMaterialBottomTabNavigator();
 

@@ -1,7 +1,7 @@
 
 import { createStackNavigator } from '@react-navigation/stack';
-import Login from '../src/views/auth/Login';
-import Splash from '../src/views/auth/Splash';
+import Login from '../views/auth/Login';
+import Splash from '../views/auth/Splash';
 
 const Stack = createStackNavigator()
 

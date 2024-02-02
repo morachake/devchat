@@ -1,8 +1,8 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import BottTabs from './tabs/BottomTabs';
-import CustomDrawer from '../src/components/CutomDrawer';
-import HelpCenter from '../src/views/home/HelpCenter';
-import Safety from '../src/views/home/Safety';
+import CustomDrawer from '../components/CutomDrawer';
+import HelpCenter from '../views/home/HelpCenter';
+import Safety from '../views/home/Safety';
 
 
 const Drawer = createDrawerNavigator()
