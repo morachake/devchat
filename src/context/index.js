@@ -1,4 +1,4 @@
-import { createContext , useContext ,useState } from "react"
+import { createContext , useCallback, useContext ,useReducer,useState } from "react"
 
 
 const initialState = {
@@ -31,10 +31,33 @@ const reducer = (state,action) =>{
 
 const DataContext = createContext()
 
-const AuthProvider = ({Children}) =>{
-   const login =() =>{
-    
+const AuthProvider = ({children}) =>{
+
+
+    const GithHubPath = 'https://github.com/'
+    const [state,dispatch] = useReducer(reducer,initialState)
+   
+    const login =() =>{
+
    }
+
+   const fetchGitStats = useCallback( async(username) =>{
+    try{
+        const response = await fetch(`${GithHubPath}${username}`);
+        const data = await response.json();
+        console.log(data);
+        dispatch({type
+        })
+    }catch (error){
+
+    }
+   });
+
+   return(
+    <DataContext.Provider value={{...state,login,fetchGitStats}}>
+        {children}
+    </DataContext.Provider>
+   )
 }
 
 const useAuth = () =>{
