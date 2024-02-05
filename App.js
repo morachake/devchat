@@ -5,7 +5,6 @@ import AuthStack from './src/navigation/AuthStack';
 import MainStack from './src/navigation/MainStack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-
 export default function App() {
   return (
     <SafeAreaProvider>
