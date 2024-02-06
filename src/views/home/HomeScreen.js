@@ -3,7 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import { StatusBar } from 'expo-status-bar';
 import SwipeCard from "../../components/SwipeCard";
 import {users as UsersArray} from "../../../utilis/data"
-import {useEffect, useRef, useState} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 import ChatFooter from "../../components/ChatFooter.";
 
 const {width,height} = Dimensions.get("screen")
@@ -28,13 +28,13 @@ export default function HomeScreen (){
             if(isActionActive){
             //     swipe card oof screen
                 Animated.timing(swipe,{
-                    duration: 100,
+                    duration: 1000,
                     toValue :{
                         x: direction * 500,
                         y: dy
                     },
                     useNativeDriver: true
-                }).start()
+                }).start(removeTopCard)
             } else{
             //     return card to original position
                 Animated.spring(swipe,{
@@ -49,6 +49,19 @@ export default function HomeScreen (){
         }
 
     })
+
+    const removeTopCard = useCallback(()=>{
+        setUsers((prevSate) => prevSate.slice(1));
+        swipe.setValue({x:0,y:0});
+    },[swipe])
+
+    const handleSelectedOption = useCallback((direction) =>{
+        Animated.timing(swipe.x,{
+            toValue: direction * 500,
+            duration: 400,
+            useNativeDriver: true
+        })
+    },[removeTopCard,swipe.x])
 
     useEffect(() => {
         if(!users.length){
@@ -79,7 +92,7 @@ export default function HomeScreen (){
 
                 }).reverse()
                 }
-                <ChatFooter/>
+                <ChatFooter handleChoice={handleSelectedOption}/>
             </View>
     )
 }

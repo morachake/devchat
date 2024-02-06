@@ -1,30 +1,59 @@
-import {Text, View, StyleSheet, Image,Dimensions} from "react-native";
+import {Text, View, StyleSheet, Image,Dimensions, Animated} from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
-import {Fragment} from "react";
+import {Fragment, useCallback} from "react";
 import Option from "./Option";
 
 const {height,width} =  Dimensions.get('screen');
 
-export default function SwipeCard({user,isFirst}){
-    const renderOption = () =>{
+export default function SwipeCard({user,isFirst , swipe, titlSign, ...rest}){
+
+    const rotate = Animated.multiply(swipe.x, titlSign).interpolate({
+        inputRange: [-100,0,100],
+        outputRange:['8deg','0deg','-8deg']
+    })
+    const animatedCardStyle ={
+        transform: [...swipe.getTranslateTransform(),{rotate}]
+    }
+    const likeOpacity = swipe.x.interpolate({
+        inputRange: [25,100],
+        outputRange:[0,1],
+        extrapolate: 'clamp'
+    })
+    const nopeOpacity = swipe.x.interpolate({
+        inputRange: [-100,-25],
+        outputRange:[1,0],
+        extrapolate: 'clamp'
+    })
+    const renderOption = useCallback(( ) =>{
         return(
             <Fragment>
-                <View
-                    style={[styles.optionContainer,styles.likeContainer]}
+                <Animated.View
+                    style={[
+                        styles.optionContainer,
+                        styles.likeContainer,
+                        {opacity: likeOpacity}
+                    ]}
                 >
                     <Option type="like"/>
-                </View>
-                <View
-                    style={[styles.optionContainer,styles.stashContainer]}
+                </Animated.View>
+                <Animated.View
+                    style={[
+                        styles.optionContainer,
+                        styles.stashContainer,
+                        {opacity: nopeOpacity}
+                    ]}
                 >
                     <Option type="nope"/>
-                </View>
+                </Animated.View>
             </Fragment>
         )
-    }
+    },[likeOpacity,nopeOpacity])
 
 return(
-    <View style={styles.container}>
+    <Animated.View style={[
+        styles.container,
+        isFirst && animatedCardStyle
+    ]} {...rest}>
         <Image source={user.image} style={styles.image}/>
         <LinearGradient
             colors={['rgba(0,0,0,0.9)', 'transparent']}
@@ -37,7 +66,7 @@ return(
             </View>
         </LinearGradient>
         {isFirst && renderOption()}
-    </View>
+    </Animated.View>
 )
 }
 
