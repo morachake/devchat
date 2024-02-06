@@ -6,7 +6,7 @@ const COLORS ={
     nope:"red",
     star:"#078bff"
 }
-export default function (){
+export default function ({handleChoice}){
     return(
         <View  style={{
             position: "absolute",
@@ -21,6 +21,7 @@ export default function (){
                 name="times"
                 size={25}
                 color={COLORS.nope}
+                onPress={()=> handleChoice(-1)}
             />
             <FooterBtn
                 name="star"
@@ -31,6 +32,7 @@ export default function (){
                 name="heart"
                 size={25}
                 color={COLORS.like}
+                onPress={()=>handleChoice(1)}
             />
         </View>
     )

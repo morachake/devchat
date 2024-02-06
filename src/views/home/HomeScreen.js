@@ -58,9 +58,9 @@ export default function HomeScreen (){
     const handleSelectedOption = useCallback((direction) =>{
         Animated.timing(swipe.x,{
             toValue: direction * 500,
-            duration: 400,
+            duration: 700,
             useNativeDriver: true
-        })
+        }).start(removeTopCard)
     },[removeTopCard,swipe.x])
 
     useEffect(() => {

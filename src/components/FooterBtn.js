@@ -18,6 +18,7 @@ export default  function ({name,size,color,style,onPress}){
             onPressIn={()=>animatedScale(0.6)}
             onPressOut={()=>{
                 animatedScale(1)
+                onPress()
             }}
             delayPressIn={0}
             delayPressOut={100}
