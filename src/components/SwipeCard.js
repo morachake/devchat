@@ -1,10 +1,27 @@
 import {Text, View, StyleSheet, Image,Dimensions} from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
+import {Fragment} from "react";
+import Option from "./Option";
 
 const {height,width} =  Dimensions.get('screen');
 
 export default function SwipeCard({user,isFirst}){
-
+    const renderOption = () =>{
+        return(
+            <Fragment>
+                <View
+                    style={[styles.optionContainer,styles.likeContainer]}
+                >
+                    <Option type="like"/>
+                </View>
+                <View
+                    style={[styles.optionContainer,styles.stashContainer]}
+                >
+                    <Option type="nope"/>
+                </View>
+            </Fragment>
+        )
+    }
 
 return(
     <View style={styles.container}>
@@ -19,6 +36,7 @@ return(
                 <Text style={styles.distance}>{user.distance} Miles away</Text>
             </View>
         </LinearGradient>
+        {isFirst && renderOption()}
     </View>
 )
 }
@@ -63,5 +81,16 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "300"
     },
-
+    optionContainer:{
+        position:"absolute",
+        top:100
+    },
+    likeContainer:{
+        left: 45,
+        transform:[{rotate: "-30deg"}]
+    },
+    stashContainer:{
+        right: 45,
+        transform:[{rotate: "30deg"}]
+    }
 })
