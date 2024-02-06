@@ -10,7 +10,7 @@ return(
     <View style={styles.container}>
         <Image source={user.image} style={styles.image}/>
         <LinearGradient
-            colors={['rgba(0,0,0,0.8)', 'transparent']}
+            colors={['rgba(0,0,0,0.9)', 'transparent']}
             style={styles.gradient}
         >
             <View style={styles.userContainer}>
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
         top:25
     },
     image :{
-        width: width * 0.9,
-        height: height * 0.78,
+        width: width * 0.97,
+        height: height * 0.74,
         borderRadius: 20
 
     },

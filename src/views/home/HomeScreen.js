@@ -13,14 +13,13 @@ export default function HomeScreen (){
         }
     }, [users.length]);
     return (
-        <>
-            <StatusBar
-                style="auto"
-                translucent={true}
-                backgroundColor='#FFFF'
-                statusBarAnimation='fade'
-            />
             <View style={styles.container}>
+                <StatusBar
+                    style="auto"
+                    translucent={true}
+                    backgroundColor='#FFFF'
+                    statusBarAnimation='fade'
+                />
                 {users.map(( user , index) => {
                     const isFirst = index === 0;
                     return (
@@ -35,7 +34,6 @@ export default function HomeScreen (){
                 }
                 <ChatFooter/>
             </View>
-        </>
     )
 }
 
